@@ -14,7 +14,7 @@ router.get('/countries', async (req, res) => {
     res.json(await getAllInfo());
 })
 router.get('/countries/:id', async (req, res) => {
-    res.json(await getAllInfo());
+    const {id} = req.params;
 })
 
 
