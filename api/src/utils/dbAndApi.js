@@ -12,8 +12,8 @@ const getApiInfo = async () => {
         // console.log(i.continents[0], "i.continents")
         return {
             name: i.name.common,
-            id: i.cioc,
-            flagImg: i.flag,
+            id: i.cca3,
+            flagImg: i.flags[0],
             continent: comodin.concat(i.continents[0]),
             capital: ver(i.capital),
             subregion: i.subregion,
