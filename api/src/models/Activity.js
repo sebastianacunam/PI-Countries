@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     difficult: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM ("1", "2", "3", "4", "5"),
       allowNull: false,
     },
     duration: {
@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     season: {
-      type: DataTypes.ENUM ("Summer", "Fall", "Winter", "Spring"),
+      type: DataTypes.ENUM ("Summer", "Autumn", "Winter", "Spring"),
       allowNull: false,
     },
   }, {timestamps: false});

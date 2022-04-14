@@ -44,6 +44,9 @@ const getAllInfo = async () => {
 }
 // console.log(getAllInfo(), "devuelve una promesa")
 
+
+
+
 module.exports = {
     getApiInfo,
     getDbInfo,
