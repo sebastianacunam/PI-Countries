@@ -45,18 +45,19 @@ router.get('/countries/:idPais', async (req, res) => {
 })
 
 router.post('/activity', async (req, res)=> {
-    const { name, difficult, duration, season, countryId } = req.body;
+    const { name, difficult, duration, season } = req.body;
 
+    // console.log(countryId, 'id que llega de body')
     const act = await Activity.create({
         name: name, 
         difficult: difficult,
         duration: duration,
-        season: season, 
+        season: season,
     })
 
     const actDb = await Country.findAll({
         where: {
-            id: countryId,  //No me lo toma por el id, pero por el nombre sí.
+            name: name,  //No me lo toma por el id, pero por el nombre sí.
         }
     })
 
