@@ -29,7 +29,7 @@ router.get('/countries', async (req, res) => {
 
 router.get('/countries/:idPais', async (req, res) => {
     const idPais = req.params.idPais.toUpperCase();
-    console.log(idPais, "id que traigo de params")
+    // console.log(idPais, "id que traigo de params")
     try {
         const countryId = await Country.findOne({
             where: {
@@ -37,7 +37,7 @@ router.get('/countries/:idPais', async (req, res) => {
             },
             include: Activity,
         })
-        console.log(countryId)
+        // console.log(countryId)
         return res.json(countryId)
     } catch (error) {   
         res.json (error)
@@ -45,25 +45,24 @@ router.get('/countries/:idPais', async (req, res) => {
 })
 
 router.post('/activity', async (req, res)=> {
-    const { name, difficult, duration, season } = req.body;
+    const { name, difficult, duration, season, countryId } = req.body;
 
     const act = await Activity.create({
-        name, 
-        difficult,
-        duration,
-        season
+        name: name, 
+        difficult: difficult,
+        duration: duration,
+        season: season, 
     })
 
-    const actDb = await Activity.findAll({
+    const actDb = await Country.findAll({
         where: {
-            name, 
-            difficult,
-            duration,
-            season
+            id: countryId,  //No me lo toma por el id, pero por el nombre sí.
         }
     })
 
-    res.send('Actividad creada con éxito :p')
+    const actCreated = await act.addCountries(actDb);
+
+    res.send(actCreated)
 })
 
 
