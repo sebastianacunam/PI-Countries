@@ -13,19 +13,19 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false, //lo cambio un momento por true
+      allowNull: false, 
     },
     flagImg: {
       type: DataTypes.STRING,
-      allowNull: false,//lo cambio un momento por true
+      allowNull: false,
     },
     continent: {
       type: DataTypes.STRING,
-      allowNull: false,//lo cambio un momento por true
+      allowNull: false,
     },
     capital: {
       type: DataTypes.STRING,
-      allowNull: false,//lo cambio un momento por true
+      allowNull: false,
     },
     subregion: {
       type: DataTypes.STRING,
@@ -38,11 +38,6 @@ module.exports = (sequelize) => {
     population: {
       type: DataTypes.INTEGER,
       allowNull: true
-    },
-    createdInDb: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
-      allowNull: false
     }
   }, {timestamps: false}
   );

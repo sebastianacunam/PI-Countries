@@ -44,6 +44,27 @@ router.get('/countries/:idPais', async (req, res) => {
     }
 })
 
+router.post('/activity', async (req, res)=> {
+    const { name, difficult, duration, season } = req.body;
+
+    const act = await Activity.create({
+        name, 
+        difficult,
+        duration,
+        season
+    })
+
+    const actDb = await Activity.findAll({
+        where: {
+            name, 
+            difficult,
+            duration,
+            season
+        }
+    })
+
+    res.send('Actividad creada con éxito :p')
+})
 
 
 module.exports = router;
