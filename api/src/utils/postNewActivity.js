@@ -1,7 +1,7 @@
 const {Country, Activity} = require('../db')
 
 const postNewActivity = async (req, res)=> {
-    const { name, difficult, duration, season, countries} = req.body;
+    const { name, difficult, duration, season, countries } = req.body;
 
     // console.log(countryId, 'id que llega de body')
     const newActivity = await Activity.create({

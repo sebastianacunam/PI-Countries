@@ -5,8 +5,6 @@ const { getAllCountries } = require('../utils/getAllCountries')
 const { getCountryById } = require('../utils/getCountryById')
 const { postNewActivity } = require('../utils/postNewActivity')
 
-const { Country, Activity } = require("../db");
-const axios = require ('axios').default
 const router = Router();
 
 // Configurar los routers

@@ -14,11 +14,14 @@ const getDbInfo = async () => {
     })
 }
 
+//comento comodin y continent porque trabajando en el front me di cuenta que no necesito continent, sino
+//que necesitaba region para tomar el valor de continent. 
+
 const CountriesDB = async() => {
     const countriesAPI = await axios.get('https://restcountries.com/v3/all');
     const countries = countriesAPI.data; 
     let comodin2 = ""
-    let comodin = ""
+    // let comodin = "" 
     const cap = (capital) =>  capital ? comodin2.concat(capital) : "no hay capital" 
     const sub = (subregion) => subregion ? subregion : "no hay subregion"
 
@@ -28,7 +31,8 @@ const CountriesDB = async() => {
                 id: c.cca3,
                 name: c.name.common, 
                 flagImg: c.flags[0],
-                continent: comodin.concat(c.continents[0]),
+                region: c.region,
+                // continent: comodin.concat(c.continents[0]),
                 capital: cap(c.capital),
                 subregion: sub(c.subregion),
                 area: c.area,
@@ -42,7 +46,8 @@ const CountriesDB = async() => {
             name: country.name.common,
             id: country.cca3,
             flagImg: country.flags[0],
-            continent: comodin.concat(country.continents[0]),
+            region: country.region,
+            // continent: comodin.concat(country.continents[0]),
             capital: cap(country.capital),
             subregion: sub(country.subregion),
             area: country.area,
