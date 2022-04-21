@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
-import { getCountries, filterCountriesByContinent } from "../actions";
+import { getCountries, filterCountriesByContinent, filterActivity, orderByName,orderByPopulation } from "../actions";
 import { Link } from 'react-router-dom'
 import CountryCard from './CountryCard'
 import Paginado from "./Paginado";
@@ -12,6 +12,9 @@ export default function Home (){
     const allCountries = useSelector((state) => state.countries)
     //-------------------------------------------------------
     
+    //constante para el ordenamiento a-z//z-a----------------
+    const [order, setOrder] = useState("");
+    //-------------------------------------------------------
     //acá van las variables para el paginado
     const [currentPage, setCurrentPage] = useState(1);
     const [countries, setCountries] = useState(10);
@@ -41,6 +44,25 @@ export default function Home (){
         e.preventDefault();
         dispatch(filterCountriesByContinent(e.target.value))
     }
+
+    function handleFilterActivity(e){
+        e.preventDefault();
+        dispatch(filterActivity(e.target.value))
+    }
+
+    function handleOrderAzZa(e){
+        e.preventDefault();
+        dispatch(orderByName(e.target.value));
+        setCurrentPage(1);
+        setOrder(`Ordenado ${e.target.value}`)
+    }
+
+    function handleOrderByPopulation(e){
+        e.preventDefault();
+        dispatch(orderByPopulation(e.target.value))
+        setCurrentPage(1);
+        setOrder(`Ordenado ${e.target.value}`)
+    }
     //-------------------------------------------------------
 
 
@@ -60,19 +82,19 @@ export default function Home (){
                     <option value="Europe">Europa</option>
                     <option value="Oceania">Oceania</option>
                 </select>
-                <select>
+                <select onChange ={e => handleFilterActivity(e)}>
                     <option value="All">Activity</option>
                     <option value="">-</option>
                     <option value="">-</option>
                     <option value="">-</option>
                     <option value="">-</option>                    
                 </select>
-                 <select>
-                    <option value="">Ninguno</option>
+                 <select onChange ={e => handleOrderAzZa(e)}>
+                    <option value="">Ninguno</option> {/* preguntar...?? */}
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                  </select>
-                 <select>
+                 <select onChange={e => handleOrderByPopulation(e)}>
                     <option value="">Ninguno</option>
                     <option value="mayor">Mayor poblacion</option>
                     <option value="menor">Menor poblacion</option>
