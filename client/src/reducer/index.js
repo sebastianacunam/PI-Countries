@@ -1,8 +1,17 @@
-import { GET_COUNTRIES, FILTER_BY_CONTINENT, FILTER_ACTIVITY, ORDER_BY_NAME, ORDER_BY_POPULATION, GET_COUNTRY_SEARCH } from '../actions'
+import { GET_COUNTRIES, 
+    FILTER_BY_CONTINENT, 
+    FILTER_ACTIVITY,
+    ORDER_BY_NAME, 
+    ORDER_BY_POPULATION, 
+    GET_COUNTRY_SEARCH,
+    POST_COUNTRY,
+    GET_ACTIVITIES
+     } from '../actions'
 
 const initialState = {
     countries : [],
-    allCountries : []
+    allCountries : [],
+    activities: []
 }
 
 function rootReducer (state = initialState, action) {
@@ -18,6 +27,12 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 countries: action.payload
+            }
+
+        case GET_ACTIVITIES: 
+            return {
+                ...state,
+                activities: action.payload
             }
 
         case FILTER_BY_CONTINENT:
@@ -86,7 +101,10 @@ function rootReducer (state = initialState, action) {
                 countries : orderedArray2
             }
             
-        
+        case POST_COUNTRY:
+            return {
+                ...state
+            }
         default: 
             return state;
 

@@ -12,7 +12,7 @@ export function getCountries(){
 
 export function getActivities(){
     return async function (dispatch){
-        var json = await axios('http://localhost:3001/activity')
+        var json = await axios('http://localhost:3001/countries')
         return dispatch ({
             type: GET_ACTIVITIES,
             payload: json.data
@@ -20,8 +20,12 @@ export function getActivities(){
     }
 }
 
-export function postActivity(){
-    
+export function postActivity(payload){
+    return async function (dispatch){
+        const response = await axios.post('http://localhost:3001/activity', payload)
+        console.log(response)
+        return response 
+    }
 }
 
 export function countrySearchBar(payload){
@@ -73,3 +77,4 @@ export const FILTER_ACTIVITY = "FILTER_ACTIVITY";            //questions..
 export const ORDER_BY_NAME = "ORDER_BY_NAME";                //ordena por asc||desc
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";    //ordena por mayor||menor
 export const GET_COUNTRY_SEARCH = "GET_COUNTRY_SEARCH";      //busca UN pais en el search
+export const POST_COUNTRY = "POST_COUNTRY";
