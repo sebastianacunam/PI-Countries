@@ -28,6 +28,7 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 countries: filteredCountries
             }
+
         case FILTER_ACTIVITY: 
             const prueba = state.countries.filter(c=> c.activities.some(a=> a.name === action.payload))
             return {
@@ -59,6 +60,7 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 countries : orderedArray
             }
+            
         case ORDER_BY_POPULATION: 
             let orderedArray2 = action.payload === "menor" ? 
                 state.countries.sort(function (a, b){

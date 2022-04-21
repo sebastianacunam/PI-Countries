@@ -5,6 +5,7 @@ import { getCountries, filterCountriesByContinent, filterActivity, orderByName,o
 import { Link } from 'react-router-dom'
 import CountryCard from './CountryCard'
 import Paginado from "./Paginado";
+import SearchBar from "./SearchBar";
 
 export default function Home (){
     // esto serían mis Hooks---------------------------------
@@ -101,6 +102,7 @@ export default function Home (){
                  </select>
 
                 <Paginado countries={countries} allCountries={allCountries.length} paginado={paginado}/>
+                <SearchBar/>
                 {
                     currentCountries?.map( c => {
                         return(

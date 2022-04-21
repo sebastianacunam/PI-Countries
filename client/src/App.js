@@ -2,6 +2,8 @@ import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import LandingPage from './components/LandingPage';
 import Home from './components/Home';
+import NewActivity from './components/NewActivity';
+import CountryDetail from './components/CountryDetail';
 
 function App() {
   return (
@@ -10,6 +12,9 @@ function App() {
         <Switch>
           <Route exact path='/' component={LandingPage}/>
           <Route path='/home' component={Home}/>
+          <Route path='/activity' component={NewActivity}/>
+          <Route path='/home/:id' component={CountryDetail}/>
+
         </Switch>
       </div>
     </BrowserRouter>
