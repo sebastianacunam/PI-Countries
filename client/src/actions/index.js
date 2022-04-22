@@ -12,19 +12,18 @@ export function getCountries(){
 
 export function getActivities(){
     return async function (dispatch){
-        var json = await axios('http://localhost:3001/countries')
-        return dispatch ({
+      var json = await axios("http://localhost:3001/allActivities")
+          return dispatch({
             type: GET_ACTIVITIES,
-            payload: json.data
-        })
-    }
-}
+            payload: json.data,
+          });        
+    };
+  };
 
-export function postActivity(payload){
-    return async function (dispatch){
-        const response = await axios.post('http://localhost:3001/activity', payload)
-        console.log(response)
-        return response 
+export function postActivities(payload) {
+    return async function (dispatch) {
+        const data = await axios.post("http://localhost:3001/activity", payload);
+        return data;
     }
 }
 
@@ -71,10 +70,10 @@ export function orderByPopulation (payload){
 }
 
 export const GET_COUNTRIES = "GET_COUNTRIES";                //todos los paises
-export const GET_ACTIVITIES = "GET_ACTIVITIES";              //todas las actividades???
+export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";    //filtra por continente
 export const FILTER_ACTIVITY = "FILTER_ACTIVITY";            //questions..
 export const ORDER_BY_NAME = "ORDER_BY_NAME";                //ordena por asc||desc
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";    //ordena por mayor||menor
 export const GET_COUNTRY_SEARCH = "GET_COUNTRY_SEARCH";      //busca UN pais en el search
-export const POST_COUNTRY = "POST_COUNTRY";
+export const POST_ACTIVITY = "POST_ACTIVITY";

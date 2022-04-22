@@ -1,17 +1,18 @@
 import { GET_COUNTRIES, 
+    GET_ACTIVITIES,
     FILTER_BY_CONTINENT, 
     FILTER_ACTIVITY,
     ORDER_BY_NAME, 
     ORDER_BY_POPULATION, 
     GET_COUNTRY_SEARCH,
-    POST_COUNTRY,
-    GET_ACTIVITIES
+    POST_ACTIVITY,
      } from '../actions'
 
 const initialState = {
     countries : [],
     allCountries : [],
-    activities: []
+    activities: [],
+    allActivities: []
 }
 
 function rootReducer (state = initialState, action) {
@@ -22,34 +23,56 @@ function rootReducer (state = initialState, action) {
                 countries: action.payload,
                 allCountries: action.payload,
             }
-        
+        case GET_ACTIVITIES:
+            return{
+                ...state,
+                activities: action.payload,
+                allActivities: action.payload
+            }
         case GET_COUNTRY_SEARCH: 
             return {
                 ...state,
                 countries: action.payload
             }
 
-        case GET_ACTIVITIES: 
-            return {
-                ...state,
-                activities: action.payload
-            }
-
         case FILTER_BY_CONTINENT:
             const allCountries = state.allCountries;
             const filteredCountries = action.payload === "All" ? allCountries : allCountries.filter ( c => c.region === action.payload) 
-            console.log(action.payload)
+            
             return {
                 ...state,
                 countries: filteredCountries
             }
 
         case FILTER_ACTIVITY: 
-            const prueba = state.countries.filter(c=> c.activities.some(a=> a.name === action.payload))
+            // const prueba = state.countries.filter(c=> c.activities.some(a=> a.name === action.payload))
+            // console.log(prueba)
+            // return {
+            //     ...state,
+            //     activities: prueba
+            // }
+            const allCountriesAct = state.countries;
+        
+            const onlyCountry = allCountriesAct.filter((pais) => {
+                return pais.activities.length > 0;
+            });
+        
+            let array = [];
+        
+            for (let i = 0; i < onlyCountry.length; i++) {
+                for (let j = 0; j < onlyCountry[i].activities.length; j++) {
+                if (onlyCountry[i].activities[j].name.toLowerCase() === action.payload) {
+                    array.push(onlyCountry[i]);
+                }
+                }
+            }
+        
+            const filteredCountries2 = action.payload === "Todos" ? allCountriesAct : array;
+        
             return {
                 ...state,
-                countries: prueba
-            }
+                countries: filteredCountries2,
+            };
 
         case ORDER_BY_NAME:
             let orderedArray = action.payload === "asc" ? 
@@ -101,9 +124,10 @@ function rootReducer (state = initialState, action) {
                 countries : orderedArray2
             }
             
-        case POST_COUNTRY:
+        case POST_ACTIVITY:
             return {
-                ...state
+                ...state,
+                activities: [...state.activities, action.payload]
             }
         default: 
             return state;

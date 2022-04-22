@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import CountryCard from './CountryCard'
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
+import FiltroActivity from "./Activities";
 
 export default function Home (){
     // esto serían mis Hooks---------------------------------
@@ -83,13 +84,10 @@ export default function Home (){
                     <option value="Europe">Europa</option>
                     <option value="Oceania">Oceania</option>
                 </select>
-                <select onChange ={e => handleFilterActivity(e)}>
-                    <option value="All">Activity</option>
-                    <option value="">-</option>
-                    <option value="">-</option>
-                    <option value="">-</option>
-                    <option value="">-</option>                    
-                </select>
+
+                <FiltroActivity setCurrentPage={setCurrentPage} setOrder={setOrder} />
+
+
                  <select onChange ={e => handleOrderAzZa(e)}>
                     <option value="">Ninguno</option> {/* preguntar...?? */}
                     <option value="asc">Ascendente</option>
