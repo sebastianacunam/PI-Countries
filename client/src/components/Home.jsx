@@ -72,6 +72,7 @@ export default function Home (){
         <div>
             <Link to='/activity'>Crear actividad</Link>
             <h1>Países y más países.</h1>
+            <Link to='/'>Volver</Link>
             <button onClick={e => handleClick(e)}>
                 Volver a cargar todos los países
             </button>
@@ -89,12 +90,12 @@ export default function Home (){
 
 
                  <select onChange ={e => handleOrderAzZa(e)}>
-                    <option value="">Ninguno</option> {/* preguntar...?? */}
+                    <option value="">-</option> 
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>
                  </select>
                  <select onChange={e => handleOrderByPopulation(e)}>
-                    <option value="">Ninguno</option>
+                    <option value="">-</option>
                     <option value="mayor">Mayor poblacion</option>
                     <option value="menor">Menor poblacion</option>
                  </select>
@@ -105,7 +106,7 @@ export default function Home (){
                     currentCountries?.map( c => {
                         return(
                             <Link to={"/home/" + c.id}> {/* el c.id es para clickear y que me lleve al pais como tal.*/ }
-                                <CountryCard name={c.name} flagImg={c.flagImg} region={c.region} key={c.id}/>
+                                <CountryCard name={c.name} flagImg={c.flagImg} region={c.region} id={c.id} key={c.id}/>
                             </Link>
                             
                         )
