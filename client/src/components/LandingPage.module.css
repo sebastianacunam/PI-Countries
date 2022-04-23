@@ -12,15 +12,17 @@
 }
 
 .welcome { 
+    padding-top: 330px;
     display: flex;
     flex-direction: column;
     align-content: center;
-    font-family: 'Poppins' 
+    font-family: 'Poppins';
+    font-size: 50px;
 }
 
 .btn {
     height: 40px;
-    width: 80px;
+    width: 120px;
     background-color: rgb(96, 143, 44);
     border-color: rgb(67, 121, 5);
     border-radius: 6px;

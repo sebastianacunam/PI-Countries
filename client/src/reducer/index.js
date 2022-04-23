@@ -39,12 +39,12 @@ function rootReducer (state = initialState, action) {
             }
 
         case FILTER_BY_CONTINENT:
-            const allCountries = state.allCountries;
+            const allCountries = state.countries;
             const filteredCountries = action.payload === "All" ? allCountries : allCountries.filter ( c => c.region === action.payload) 
             
             return {
                 ...state,
-                countries: filteredCountries
+                allCountries: filteredCountries
             }
 
         case FILTER_ACTIVITY: 
