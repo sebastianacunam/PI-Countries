@@ -6,13 +6,15 @@ import { GET_COUNTRIES,
     ORDER_BY_POPULATION, 
     GET_COUNTRY_SEARCH,
     POST_ACTIVITY,
+    GET_DETAIL
      } from '../actions'
 
 const initialState = {
     countries : [],
     allCountries : [],
     activities: [],
-    allActivities: []
+    allActivities: [],
+    detail: []
 }
 
 function rootReducer (state = initialState, action) {
@@ -28,6 +30,7 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 activities: action.payload,
                 allActivities: action.payload
+                
             }
         case GET_COUNTRY_SEARCH: 
             return {
@@ -128,6 +131,12 @@ function rootReducer (state = initialState, action) {
             return {
                 ...state,
                 activities: [...state.activities, action.payload]
+            }
+
+        case GET_DETAIL:
+            return {
+                ...state,
+                detail: action.payload
             }
         default: 
             return state;

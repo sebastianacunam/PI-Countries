@@ -47,10 +47,10 @@ export default function Home (){
         dispatch(filterCountriesByContinent(e.target.value))
     }
 
-    function handleFilterActivity(e){
-        e.preventDefault();
-        dispatch(filterActivity(e.target.value))
-    }
+    // function handleFilterActivity(e){
+    //     e.preventDefault();
+    //     dispatch(filterActivity(e.target.value))
+    // }
 
     function handleOrderAzZa(e){
         e.preventDefault();

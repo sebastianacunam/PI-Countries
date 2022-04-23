@@ -69,8 +69,23 @@ export function orderByPopulation (payload){
     }
 }
 
+export function getDetail (id){
+    return async function (dispatch){
+        try {
+            var json = await axios(`http://localhost:3001/countries/${id}`)
+            return dispatch({
+                type: GET_DETAIL,
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 export const GET_COUNTRIES = "GET_COUNTRIES";                //todos los paises
-export const GET_ACTIVITIES = "GET_ACTIVITIES";
+export const GET_ACTIVITIES = "GET_ACTIVITIES";              //todas las actividades que voy creando
+export const GET_DETAIL = "GET_DETAIL"     ;                //el detalle del id de un país
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";    //filtra por continente
 export const FILTER_ACTIVITY = "FILTER_ACTIVITY";            //questions..
 export const ORDER_BY_NAME = "ORDER_BY_NAME";                //ordena por asc||desc
