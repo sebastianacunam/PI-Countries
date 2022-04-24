@@ -19,7 +19,7 @@ export default function Home (){
     //-------------------------------------------------------
     //acá van las variables para el paginado
     const [currentPage, setCurrentPage] = useState(1);
-    const [countries, setCountries] = useState(10);
+    const [countries] = useState(10);
     const lastCountry = currentPage * countries 
     const firstCountry = lastCountry - countries
     const currentCountries = allCountries.slice(firstCountry, lastCountry)
