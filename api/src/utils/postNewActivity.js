@@ -18,7 +18,7 @@ const postNewActivity = async (req, res)=> {
     })
     newActivity.addCountry(activityDb)  
       // console.log("");
-    res.json({msg: "se pudoxdddd"})
+    res.json({msg: "Se ha creado la actividad con éxito!!!"})
 }
 
 module.exports = {postNewActivity}
