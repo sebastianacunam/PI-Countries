@@ -59,3 +59,13 @@ export default function FiltroActivity({ setCurrentPage, setOrder }) {
     </div>
   );
 }
+
+
+// <select onChange={e => handleFilterByContinent(e)}>
+// <option value="All" key="All">Todos</option>
+// <option value="Africa" key="Africa">Africa</option>
+// <option value="Americas" key="Americas">America</option>
+// <option value="Asia" key="Asia">Asia</option>
+// <option value="Europe" key="Europe">Europa</option>
+// <option value="Oceania" key="Oceania">Oceania</option>
+// </select>

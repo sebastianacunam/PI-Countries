@@ -2,8 +2,9 @@
     background-image: url("https://www.mural-wallpaper.com/wp-content/uploads/2021/08/S-WM24.jpg");
     height: 100%;
     width: 100% ;
-    position:absolute;
+    position: absolute;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     opacity: 0.9;
     display: flex;
