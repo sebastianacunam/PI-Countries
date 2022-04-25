@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterActivity, getActivities, getCountries } from "../actions/index";
+import { filterActivity, getActivities } from "../actions/index";
+
 
 /*Este componente se encarga de filtrar los países por actividad turística.*/
 export default function FiltroActivity({ setCurrentPage, setOrder }) {
@@ -24,8 +25,10 @@ export default function FiltroActivity({ setCurrentPage, setOrder }) {
     }
   }
 
+
+
   useEffect(() => {
-    dispatch(getCountries());
+    // dispatch(getCountries());
     dispatch(getActivities());
   }, [dispatch]);
 
@@ -47,6 +50,7 @@ export default function FiltroActivity({ setCurrentPage, setOrder }) {
           <option key="Todos" value="Todos">
             Todos
           </option>
+          
           {arr?.map((activity) => (
 
             <option key={activity.id} value={activity.name}>

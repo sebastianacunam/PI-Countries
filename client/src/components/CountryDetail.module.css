@@ -31,3 +31,61 @@
     margin-top: 8px;
     border-radius: 10px;
 }
+
+
+
+.infoCompleta{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.infoCompleta2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.img{
+    height: 400px;
+    width: 500px;
+    
+}
+
+.country{
+    display: flex;
+    flex-direction: row;    
+}
+
+
+.infopais{
+    display: flex;
+    flex: row;
+    align-items: center;
+    margin: 35px;
+    color: white;
+    border-radius: 15px;
+    background-color: rgba(58, 63, 58, 0.863);
+}
+
+.eachtag{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.eachActivity{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(141, 125, 125, 0.767);
+    color: white;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}

@@ -23,76 +23,99 @@ export default function Detail(props) {
           <button className={estilos.volver}> Volver </button>
         </Link>
       </section>
-      {
-        theCountry.name ?
-          <div>
-            <img src={theCountry.flagImg} alt="Not found" />
 
-            <div>
-              <h1 key={theCountry.name}>
-                {theCountry.name} ({theCountry.id})
-              </h1>
-            </div>
-            <div>
-              <label>Capital</label>
-              <h3 key={theCountry.capital}>{theCountry.capital}</h3>
-            </div>
-            <div>
-              <label>Continente</label>
-              <h2 key={theCountry.region}>
-                {theCountry.region}
-              </h2>
-            </div>
-            <div>
-              <label>Subregion</label>
-              <h3 key={theCountry.subregion}>
-                {theCountry.subregion}
-              </h3>
-            </div>
-            <div>
-              <label>Area</label>
-              <h3 key={theCountry.area}>
-                {theCountry.area} km2
-              </h3>
-            </div>
-            <div>
-              <label >Poblacion</label>
-              <h3 key={theCountry.population}>
-                {theCountry.population}
-              </h3>
-            </div>
-          </div>
-          :
-          <p>Loading...</p>
-      }
-
-      {theCountry.name && (
-        <div >
-          <h3>Actividades</h3>
-          <div >
-            {theCountry.activities &&
-              theCountry.activities.map((act) => (
-                <div key={act.name}>
-                  <h3 key={act.name}>
-                    {act.name}
-                  </h3>
-
-                  <h3 key={act.difficult}>
-                    DIFICULTAD: {act.difficult}
-                  </h3>
-
-                  <h3 key={act.name + "."}>
-                    DURACIÓN: {act.duration}
-                  </h3>
-
-                  <h3 key={act.season}>
-                    TEMPORADA: {act.season}
-                  </h3>
+      <section className={estilos.infoCompleta}>
+        {/* <section className={estilos.country}> */}
+        {
+          theCountry.name ?
+            <div className={estilos.country}>
+              <img className={estilos.img} src={theCountry.flagImg} alt="Not found" />
+              
+              <section className={estilos.infopais}>
+                <div className={estilos.eachtag}>
+                  <h1 key={theCountry.name}>
+                    {theCountry.name} 
+                  </h1>
+                  <h1 key={theCountry.id}>
+                    ({theCountry.id})
+                  </h1>
                 </div>
-              ))}
-          </div>
-        </div>
-      )}
+
+                <div className={estilos.eachtag}>
+                  <h1>Capital</h1>
+                  <h4 key={theCountry.capital}>{theCountry.capital}</h4>
+                </div>
+
+                <div className={estilos.eachtag}>
+                  <h1>Continente</h1>
+                  <h4 key={theCountry.region}>{theCountry.region}</h4>
+                </div>
+
+                <div className={estilos.eachtag}>
+                  <h1>Subregion</h1>
+                  <h4 key={theCountry.subregion}>{theCountry.subregion}</h4>
+                </div>
+
+                <div className={estilos.eachtag}>
+                  <h1>Area</h1>
+                  <h4 key={theCountry.area}>{theCountry.area} km2</h4>
+                </div>
+
+                <div className={estilos.eachtag}>
+                  <h1 >Poblacion</h1>
+                  <h4 key={theCountry.population}>{theCountry.population}</h4>
+                </div>
+
+                </section>
+            </div>
+            :
+            <p>Loading...</p>
+        }
+        {/* </section> */}
+
+         
+      </section>
+
+      <section className={estilos.infoCompleta}> 
+          {theCountry.name && (
+            <div className={estilos.country}>
+              <h1>Actividades</h1>
+              <section className={estilos.infopais}>
+                  <div className={estilos.contenedor}>
+                    {theCountry.activities &&
+                      theCountry.activities.map((act) => (
+                        <div className={estilos.eachActivity} key={act.name}>
+                          <div className={estilos.eachtag}>
+                            <h3 key={act.name}>
+                              ACTIVIDAD: {act.name}
+                            </h3>
+                          </div>
+
+                          <div className={estilos.eachtag}>
+                            <h3 key={act.difficult}>
+                              DIFICULTAD: {act.difficult}
+                            </h3>
+                          </div>
+
+                          <div>
+                            <h3 key={act.name + "."}>
+                              DURACIÓN: {act.duration}
+                            </h3>
+                          </div>
+
+                          <div>
+                            <h3 key={act.season}>
+                              TEMPORADA: {act.season}
+                            </h3>
+                          </div>
+
+                        </div>
+                      ))}
+                  </div>
+                  </section>
+            </div>
+          )}
+          </section>
     </div>
   )
 }   

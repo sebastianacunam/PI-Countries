@@ -35,7 +35,8 @@ function rootReducer (state = initialState, action) {
         case GET_COUNTRY_SEARCH: 
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
+                // allCountries: action.payload
             }
 
         case FILTER_BY_CONTINENT:
@@ -48,13 +49,19 @@ function rootReducer (state = initialState, action) {
                 countries: filteredCountries
             }
 
+
+
+        //
         case FILTER_ACTIVITY: 
-            // const prueba = state.countries.filter(c=> c.activities.some(a=> a.name === action.payload))
+            // const allAct = state.allCountries
+            // const prueba = action.payload !== "Todos" ? state.countries : allAct.filter(c => c.allActivities.includes( a => a.name === action.payload ) )
             // console.log(prueba)
+
             // return {
             //     ...state,
-            //     activities: prueba
+            //     countries: prueba
             // }
+      
             const allCountriesAct = state.countries;
         
             const onlyCountry = allCountriesAct.filter((pais) => {
@@ -72,7 +79,7 @@ function rootReducer (state = initialState, action) {
             }
         
             const filteredCountries2 = action.payload === "Todos" ? allCountriesAct : array;
-        
+         
             return {
                 ...state,
                 countries: filteredCountries2,

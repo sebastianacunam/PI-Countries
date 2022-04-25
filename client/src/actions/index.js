@@ -27,16 +27,16 @@ export function postActivities(payload) {
     }
 }
 
-export function countrySearchBar(payload){
+export function countrySearchBar(name){
     return async function (dispatch){
        try {
-        var json = await axios(`http://localhost:3001/countries?name=${payload}`)
+        var json = await axios(`http://localhost:3001/countries?name=${name}`)
         return dispatch({
             type: GET_COUNTRY_SEARCH,
             payload: json.data
         })
        } catch (error) {
-          console.log(error) 
+           alert("No existe tal país.")
        }
     }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
-import { getCountries, filterCountriesByContinent, filterActivity, orderByName,orderByPopulation } from "../actions";
+import { getCountries, filterCountriesByContinent, orderByName,orderByPopulation } from "../actions";
 import { Link } from 'react-router-dom'
 import CountryCard from './CountryCard'
 import Paginado from "./Paginado";
@@ -46,11 +46,6 @@ export default function Home (){
     function handleFilterByContinent(e){
         e.preventDefault();
         dispatch(filterCountriesByContinent(e.target.value))
-    }
-
-    function handleFilterActivity(e){
-        e.preventDefault();
-        dispatch(filterActivity(e.target.value))
     }
 
     function handleOrderAzZa(e){

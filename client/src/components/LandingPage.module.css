@@ -13,7 +13,7 @@
 }
 
 .welcome { 
-    padding-top: 330px;
+    
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -28,3 +28,13 @@
     border-color: rgb(67, 121, 5);
     border-radius: 6px;
 } 
+
+.prueba{
+    padding:50px;
+    margin:250px;
+    padding-left: 80px;
+    /* color: white; */
+    padding-right: 80px;
+    background-color: rgba(141, 125, 125, 0.767);
+    border-radius: 15px;
+}
