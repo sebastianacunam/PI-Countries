@@ -1,0 +1,33 @@
+.background{
+    background-image: url('https://i.pinimg.com/originals/d3/96/c2/d396c2f5bae775360616397ec16b7d1d.jpg');
+    background-repeat: no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    min-height:100%;
+}
+
+.top{
+    background-color: rgb(89, 127, 92);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-end;
+}
+
+.volver{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 120px;
+    background-color:rgb(96, 143, 44);
+    height: 40px;
+    width: 90px;
+    margin-top: 8px;
+    border-radius: 10px;
+}
