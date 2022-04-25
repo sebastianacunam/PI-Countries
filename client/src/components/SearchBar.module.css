@@ -1,0 +1,22 @@
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    padding: 4px;
+}
+
+.input{
+    height: 40px;
+    min-width: 100%;
+    border-radius: 10px;
+}
+
+.btn{
+    cursor: pointer;
+    text-decoration: none;
+    background-color:rgb(96, 143, 44);
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+}

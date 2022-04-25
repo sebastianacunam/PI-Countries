@@ -23,3 +23,5 @@ export default function Paginado ({countries, allCountries, paginado}){
         </div>
     )
 }
+
+

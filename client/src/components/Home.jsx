@@ -48,10 +48,10 @@ export default function Home (){
         dispatch(filterCountriesByContinent(e.target.value))
     }
 
-    // function handleFilterActivity(e){
-    //     e.preventDefault();
-    //     dispatch(filterActivity(e.target.value))
-    // }
+    function handleFilterActivity(e){
+        e.preventDefault();
+        dispatch(filterActivity(e.target.value))
+    }
 
     function handleOrderAzZa(e){
         e.preventDefault();
@@ -71,50 +71,74 @@ export default function Home (){
 
     return (
         <div className={estilos.background}>
-            <Link to='/activity'>Crear actividad</Link>
-            <h1>Países y más países.</h1>
-            <Link to='/'>Volver</Link>
-            <button onClick={e => handleClick(e)}>
-                Volver a cargar todos los países
-            </button>
-            <div>
-                <select onChange={e => handleFilterByContinent(e)}>
-                    <option value="All" key="All">Todos</option>
-                    <option value="Africa" key="Africa">Africa</option>
-                    <option value="Americas" key="Americas">America</option>
-                    <option value="Asia" key="Asia">Asia</option>
-                    <option value="Europe" key="Europe">Europa</option>
-                    <option value="Oceania" key="Oceania">Oceania</option>
-                </select>
-
-                <FiltroActivity setCurrentPage={setCurrentPage} setOrder={setOrder} />
+            <div className={estilos.top}>
+                <h3>CountryWiki</h3>
+                <SearchBar/>
+                <Link to='/activity'>
+                    <button className={estilos.volver}>Crear actividad</button>
+                </Link> 
+                <button className={estilos.cargar} onClick={e => handleClick(e)}>
+                    Cargar todos los países
+                </button>
+                <Link to='/'>
+                    <button className={estilos.volver}>Volver</button>
+                </Link>
+            </div>
 
 
-                 <select onChange ={e => handleOrderAzZa(e)}>
-                    <option value="">-</option> 
-                    <option value="asc">Ascendente</option>
-                    <option value="desc">Descendente</option>
-                 </select>
-                 <select onChange={e => handleOrderByPopulation(e)}>
-                    <option value="">-</option>
-                    <option value="mayor">Mayor poblacion</option>
-                    <option value="menor">Menor poblacion</option>
-                 </select>
+            <section className={estilos.top2}>
+                
+                <div className={estilos.botones2}>
+                    <div className={estilos.prueba}>
+                        <h3>CONTINENTE</h3>
+                        <select className={estilos.each} onChange={e => handleFilterByContinent(e)}>
+                            <option value="All" key="All">Todos</option>
+                            <option value="Africa" key="Africa">Africa</option>
+                            <option value="Americas" key="Americas">America</option>
+                            <option value="Asia" key="Asia">Asia</option>
+                            <option value="Europe" key="Europe">Europa</option>
+                            <option value="Oceania" key="Oceania">Oceania</option>
+                        </select>
+                    </div>
+                    
+                    <div className={estilos.prueba}>
+                        <h3>ACTIVIDADES</h3>
+                        <FiltroActivity className={estilos.each} setCurrentPage={setCurrentPage} setOrder={setOrder} />
+                    </div>
+                    
+                    <div className={estilos.prueba}>
+                        <h3>ORDEN ALFABÉTICO</h3>
+                        <select className={estilos.each} onChange ={e => handleOrderAzZa(e)}>
+                            <option value="">-</option> 
+                            <option value="asc">Ascendente</option>
+                            <option value="desc">Descendente</option>
+                        </select>
+                    </div>
+                    <div>
+                        <h3>POBLACIÓN</h3>
+                        <select className={estilos.each} onChange={e => handleOrderByPopulation(e)}>
+                            <option value="">-</option>
+                            <option value="mayor">Mayor poblacion</option>
+                            <option value="menor">Menor poblacion</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
 
                 <Paginado countries={countries} allCountries={allCountries.length} paginado={paginado}/>
-                <SearchBar/>
+                
                 {
                     currentCountries?.map( c => {
                         return(
-                            <Link to={"/home/" + c.id}> {/* el c.id es para clickear y que me lleve al pais como tal.*/ }
+                            // <Link to={"/home/" + c.id}> {/* el c.id es para clickear y que me lleve al pais como tal.*/ }
                                 <CountryCard name={c.name} flagImg={c.flagImg} region={c.region} id={c.id} key={c.id}/>
-                            </Link>
+                            // </Link>
                             
                         )
                     })
                 }
-
-            </div>
+                
+            
         </div>
     )
 }

@@ -1,0 +1,25 @@
+.countryCard{
+    display: inline-flex;
+    margin: 20px;
+
+}
+
+.borde{
+    background-color:  rgba(97, 143, 44, 0.6);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    min-height: 300px;
+    width: 400px;
+}
+
+.flag{
+    border-radius: 30px;
+    margin-bottom: 10px;
+    width :300px;
+    height:200px;
+}
+.flag:hover{
+    transition: 1s;
+    width: 325px;
+    height:225px;
+}

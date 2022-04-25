@@ -1,0 +1,85 @@
+.background{
+    background-image: url('https://media.npr.org/assets/img/2021/10/06/gettyimages-1302813215_slide-954bde61c9100c40f6dd939e711e2672f458d2d9.jpg');
+    background-repeat: no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    min-height:100%;
+}
+
+.space{
+    padding: 50px;
+}
+
+.form{
+    width: 400px; 
+    background-color: rgb(61, 106, 76);
+    padding: 40px;
+    margin-top: 40px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.labels{
+    width: 100%;
+    margin: 5px;
+    border-radius: 5px;    
+}
+.top{
+    background-color: rgb(89, 127, 92);
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.volver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+   
+    background-color:rgb(96, 143, 44);
+    height: 40px;
+    width: 70px;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
+
+.crear{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    background-color:rgb(96, 143, 44);
+    height: 40px;
+    width: 150px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.crearNo{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    background-color:rgb(96, 143, 44);
+    height: 40px;
+    width: 150px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.errors{
+    color: red;
+}
+
+.err{
+    width: 100%;
+    margin: 5px;
+    border-radius: 5px;    
+    border: 2px solid red;
+}

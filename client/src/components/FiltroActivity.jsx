@@ -38,7 +38,7 @@ export default function FiltroActivity({ setCurrentPage, setOrder }) {
 
   return (
     <div>
-      <h6>ACTIVIDAD TURISTICA</h6>
+      
       <div>
         <select 
             key="Actividad" 
