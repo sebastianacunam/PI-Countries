@@ -67,8 +67,12 @@
 .each{
     margin-left: 20px;
     margin-right: 20px;
-    width: 160px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: rgba(149, 163, 149, 0.747);
+    border-color: rgb(96, 143, 44);
 }
+
 .prueba{
     display: flex;
     flex-direction: column;

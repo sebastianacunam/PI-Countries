@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterActivity, getActivities } from "../actions/index";
+import estilos from './FiltroActivity.module.css'
 
 
 /*Este componente se encarga de filtrar los países por actividad turística.*/
@@ -43,9 +44,7 @@ export default function FiltroActivity({ setCurrentPage, setOrder }) {
     <div>
       
       <div>
-        <select 
-            key="Actividad" 
-            onChange={(e) => handleFilterActivity(e)}
+        <select className={estilos.filtro} key="Actividad" onChange={(e) => handleFilterActivity(e)}
         >
           <option key="Todos" value="Todos">
             Todos

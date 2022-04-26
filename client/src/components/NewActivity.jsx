@@ -24,7 +24,7 @@ function validate(input) {
     if (!input.duration) {
         errors.duration = "Se require el tiempo de duración";
     }else if (input.duration < 1) {
-        errors.duration = "La cantidad de días no puede ser negativa o 0";
+        errors.duration = "La cantidad de días no puede ser negativa ó 0";
     }
 
     if (!input.countries.length) {
@@ -178,11 +178,11 @@ export default function NewActivity (){
                         
                     </div>
                     {input.countries?.map((country) => (
-                        <div key={country} >
-                        <button onClick={() => handleDelete(country)}>
-                            x
-                        </button>
-                        <p>{country}</p>
+                        <div className={estilos.btnContain} key={country} >
+                            <button className={estilos.xBtn} onClick={() => handleDelete(country)}>
+                                x
+                            </button>
+                            <p className={estilos.bPais}>{country}</p>
                         </div>
                 ))}
 

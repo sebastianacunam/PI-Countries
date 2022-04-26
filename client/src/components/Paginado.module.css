@@ -24,6 +24,19 @@
 
 .a:hover{
     background-color:rgb(67, 101, 28); 
+}
 
+.pageButtons{ 
+    display: flex;
+    
+    cursor: pointer;
+    background-color:rgb(96, 143, 44);
+    border-color: rgb(96, 143, 44);
+    height: 30px;
+    width: 80px;
+    justify-content: center;
+    padding-top: 8px;
+    border-radius: 40px;
+    margin-top: 20px;
 }
 

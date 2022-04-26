@@ -31,19 +31,31 @@ export default function Home (){
         // const firstCountry = lastCountry - countries;
      */                                              
     const lastCountry = currentPage !== 1 ? currentPage * countries : currentPage * countries2;
-
     const firstCountry = currentPage !== 1 ? lastCountry - countries : lastCountry - countries2; 
-    
     const currentCountries = currentPage !== 1 ? allCountries.slice(firstCountry-1, lastCountry-1) : allCountries.slice(firstCountry, lastCountry);
 
-    
     //allCountries.slice(firstCountry, lastCountry)
 
     const paginado = (pageNumbers) => {
         setCurrentPage(pageNumbers)
     }
     
+    const firstPage = (currentPage) => {
+        setCurrentPage(currentPage = 1) 
+    }
 
+    const lastPage = (currentPage) => {
+        setCurrentPage(currentPage = (Math.floor(1+allCountries.length/countries)))
+    }
+
+    const prevPage = () => {
+        if (currentPage > 1) setCurrentPage(currentPage - 1)
+    }
+    
+    const nextPage = () => {
+        if (currentPage < (Math.floor(1+allCountries.length/countries))) setCurrentPage(currentPage+1) 
+    }
+    
     //-------------------------------------------------------
 
     useEffect (()=>{
@@ -123,7 +135,7 @@ export default function Home (){
                             <option value="desc">Descendente</option>
                         </select>
                     </div>
-                    <div>
+                    <div className={estilos.prueba}>
                         <h3>POBLACIÓN</h3>
                         <select className={estilos.each} onChange={e => handleOrderByPopulation(e)}>
                             <option value="">-</option>
@@ -134,8 +146,16 @@ export default function Home (){
                 </div>
             </section>
 
-                <Paginado countries={countries} allCountries={allCountries.length} paginado={paginado}/>
-                
+                <Paginado 
+                    countries={countries} 
+                    allCountries={allCountries.length}
+                    paginado={paginado} 
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                    prevPage={prevPage} 
+                    nextPage={nextPage}
+                />
+                <p>Página: {currentPage}</p>
                 {
                     currentCountries?.map( c => {
                         return(
