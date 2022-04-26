@@ -3,8 +3,9 @@ import estilos from './Paginado.module.css'
 
 export default function Paginado ({countries, allCountries, paginado}){ 
     const pageNumbers = []
-    
-    for (let i=1; i<=Math.ceil(allCountries/countries); i++){
+
+  
+    for (let i=1; i<=Math.ceil(allCountries/countries)+1; i++){
         pageNumbers.push(i)
     }
 

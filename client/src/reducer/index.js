@@ -62,7 +62,7 @@ function rootReducer (state = initialState, action) {
             //     countries: prueba
             // }
       
-            const allCountriesAct = state.countries;
+            const allCountriesAct = state.allCountries;
         
             const onlyCountry = allCountriesAct.filter((pais) => {
                 return pais.activities.length > 0;
