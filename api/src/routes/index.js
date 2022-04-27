@@ -16,7 +16,7 @@ const router = Router();
 
 router.get('/countries', getAllCountries)
 
-router.get("/allActivities", getAllActivities)
+router.get('/allActivities', getAllActivities)
 
 router.get('/countries/:idPais', getCountryById)
 

@@ -9,12 +9,12 @@ const getAllCountries = async (req, res) => {
         const result = await CountriesDB();
         res.json(result)
     } else {
-        if (name) {           
+        if (!name) res.send(allCountries)
+        else {
             let countryName = await allCountries.filter( c => c.name.toLowerCase().includes(name.toLowerCase()))
             /*if (countryName.length)*/ res.send(countryName)
             console.log("toy aka")
         }
-        else res.json(allCountries);
     }   
     }
     catch(err){
