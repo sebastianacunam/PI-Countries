@@ -11,12 +11,17 @@ export default function SearchBar(){
     function handleSearchInput(e){
         e.preventDefault();
         setCountry(e.target.value);
-        console.log(country)
+        // console.log(country)
     }
 
     function handleSubmitButton(e){
         e.preventDefault();
-        dispatch(countrySearchBar(country))
+        if (country !== "") {
+            dispatch(countrySearchBar(country))
+            setCountry("");
+          } else {
+            alert("Por favor, ingrese un país para buscar.");
+          }
     }
 
     return (
