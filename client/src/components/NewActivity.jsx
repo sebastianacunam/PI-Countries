@@ -120,7 +120,7 @@ export default function NewActivity (){
            
            
              <section className={estilos.top}>
-                <Link to='/home'>
+                <Link to='/home' className={estilos.link}>
                     <button className={estilos.volver}> Volver</button>
                 </Link>
                 <h1 >Agrega una actividad nueva!</h1>

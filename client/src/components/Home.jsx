@@ -95,13 +95,13 @@ export default function Home (){
             <div className={estilos.top}>
                 <h3>CountryWiki</h3>
                 <SearchBar/>
-                <Link to='/activity'>
+                <Link to='/activity' className={estilos.link}>
                     <button className={estilos.volver}>Crear actividad</button>
                 </Link> 
                 <button className={estilos.cargar} onClick={e => handleClick(e)}>
                     Cargar todos los países
                 </button>
-                <Link to='/'>
+                <Link to='/' className={estilos.link}>
                     <button className={estilos.volver}>Volver</button>
                 </Link>
             </div>
@@ -155,7 +155,7 @@ export default function Home (){
                     prevPage={prevPage} 
                     nextPage={nextPage}
                 />
-                <p>Página: {currentPage}</p>
+                <p className={estilos.currentPage}><strong>Estás en la página: "{currentPage}"</strong></p>
                 {
                     currentCountries?.map( c => {
                         return(
@@ -166,7 +166,15 @@ export default function Home (){
                         )
                     })
                 }
-                
+                <Paginado 
+                    countries={countries} 
+                    allCountries={allCountries.length}
+                    paginado={paginado} 
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                    prevPage={prevPage} 
+                    nextPage={nextPage}
+                />
             
         </div>
     )
