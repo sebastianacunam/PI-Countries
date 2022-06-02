@@ -1,5 +1,4 @@
 const { getDbInfo, CountriesDB } = require('../utils/dbAndApi')
-const {Country} = require ('../db')
 
 
 const getAllCountries = async (req, res) => {
@@ -23,27 +22,6 @@ const getAllCountries = async (req, res) => {
     }
 }
 
-const newCountry = async ( req, res) => {
-    const { name, region, capital, subregion, area, population, flagImg } = req.body
-    try {
-
-        const newC = await Country.create({
-            
-                name,
-                region,
-                capital,
-                subregion,
-                area,
-                flagImg,
-                population
-            
-        })
-        res.json(newC)
-} catch (error) {
-    console.log(error)
-}
-}
-
-module.exports = {getAllCountries, newCountry}
+module.exports = {getAllCountries}
 
 // Acá también obtengo por query el nombre del país
