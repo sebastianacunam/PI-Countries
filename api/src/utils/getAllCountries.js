@@ -11,9 +11,13 @@ const getAllCountries = async (req, res) => {
     } else {
         if (!name) res.send(allCountries)
         else {
+            
             let countryName = await allCountries.filter( c => c.name.toLowerCase().includes(name.toLowerCase()))
-            /*if (countryName.length)*/ res.send(countryName)
-            console.log("toy aka")
+            if (!countryName.length){
+                res.sendStatus(404)
+            } else {
+                res.send(countryName)
+            }
         }
     }   
     }
