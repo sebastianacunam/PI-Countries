@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import {postActivities} from '../actions/index';
+import {postActivities, getCountries} from '../actions/index';
 import {useDispatch, useSelector} from 'react-redux';
+import { useEffect } from 'react';
 import estilos from './NewActivity.module.css'
   
 
@@ -37,7 +38,11 @@ function validate(input) {
 export default function NewActivity (){
     const dispatch = useDispatch()
     const countries = useSelector ( (state) => state.countries )
+    
 
+    useEffect( () => {
+        dispatch(getCountries())
+    })
     //Estados..
         //Éste sería mi estado manejador de errores para el formulario.
     const [errors, setErrors] = useState({});
@@ -50,7 +55,7 @@ export default function NewActivity (){
         countries: []
     })
         // Acá consologueaba para saber qué mostraban los inputs-
-    console.log(input) 
+    //console.log(input) 
 
     //Funciones "handles" de mi formulario. 
         //Con éste, modifico el estado name, season, difficult y duration.
@@ -91,16 +96,21 @@ export default function NewActivity (){
     }
         //Con éste, hago dispatch del postActivities
     function handleSubmit(e){
-        e.preventDefault();
-        dispatch(postActivities(input))
-        alert("Actividad creada")
-        setInput({
-            name: "", 
-            season: "",
-            difficult: "",
-            duration: "",
-            countries: []
-        })
+        if(input.name && input.season && input.difficult && input.duration && input.countries){
+            e.preventDefault();
+            dispatch(postActivities(input))
+            alert("Actividad creada")
+            setInput({
+                name: "", 
+                season: "",
+                difficult: "",
+                duration: "",
+                countries: []
+            })
+        } else { 
+            e.preventDefault();
+            alert ('Faltan campos por completar!')
+        }
         
     }
 
