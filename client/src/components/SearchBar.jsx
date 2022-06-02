@@ -4,13 +4,14 @@ import { useDispatch } from "react-redux";
 import { countrySearchBar } from "../actions";
 import estilos from './SearchBar.module.css'; 
 
-export default function SearchBar(){
+export default function SearchBar({setCurrentPage}){
     const dispatch = useDispatch();
     const [country, setCountry] = useState(""); 
 
     function handleSearchInput(e){
         e.preventDefault();
         setCountry(e.target.value);
+        setCurrentPage(1)
         // console.log(country)
     }
 
@@ -26,7 +27,7 @@ export default function SearchBar(){
 
     return (
         <div className={estilos.background}>
-            <input className={estilos.input} onChange={(e) => handleSearchInput(e)} type="text" placeholder="Buscar país..."/>
+            <input className={estilos.input} onChange={(e) => handleSearchInput(e)} type="text" value={country} placeholder="Buscar país..."/>
             <button className={estilos.btn} onClick={(e) => handleSubmitButton(e)} type="submit">Buscar</button>
         </div>
     )
