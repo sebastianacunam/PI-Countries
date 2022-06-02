@@ -52,7 +52,7 @@ export default function Home (){
     }
 
     const lastPage = (currentPage) => {
-        setCurrentPage(currentPage = (Math.floor(1+allCountries.length/countries)))
+        setCurrentPage(currentPage = (Math.floor(allCountries.length/countries)))
     }
 
     const prevPage = () => {
@@ -60,7 +60,7 @@ export default function Home (){
     }
     
     const nextPage = () => {
-        if (currentPage < (Math.floor(1+allCountries.length/countries))) setCurrentPage(currentPage+1) 
+        if (currentPage < (Math.floor(allCountries.length/countries))) setCurrentPage(currentPage+1) 
     }
     
     //-------------------------------------------------------
