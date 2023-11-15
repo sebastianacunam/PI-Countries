@@ -1,9 +1,5 @@
 {
     "version": 2,
-    "install": {
-        "include": ["api/**"],
-        "includeFiles": ["package.json", "package-lock.json"]
-      },
     "builds": [
       {
         "src": "index.js",
