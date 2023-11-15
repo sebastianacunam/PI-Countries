@@ -22,17 +22,24 @@ export default function Home (){
     //acá van las variables para el paginado
     const [currentPage, setCurrentPage] = useState(1);
     const [countries] = useState(10);
-    const countries2 = 9;
+    // const countries2 = 9;
         /*
         // if(currentPage !== 1) countries;
         // else countries222;
     
         // const lastCountry = currentPage * countries;
         // const firstCountry = lastCountry - countries;
-     */                                              
+     */ 
+    /*                                             
     const lastCountry = currentPage !== 1 ? currentPage * countries : currentPage * countries2;
     const firstCountry = currentPage !== 1 ? lastCountry - countries : lastCountry - countries2; 
     const currentCountries = currentPage !== 1 ? allCountries.slice(firstCountry-1, lastCountry-1) : allCountries.slice(firstCountry, lastCountry);
+    */
+
+    const lastCountry = currentPage * countries 
+    const firstCountry = lastCountry - countries 
+    const currentCountries = allCountries.slice(firstCountry, lastCountry);
+
 
     //allCountries.slice(firstCountry, lastCountry)
 
@@ -45,7 +52,7 @@ export default function Home (){
     }
 
     const lastPage = (currentPage) => {
-        setCurrentPage(currentPage = (Math.floor(1+allCountries.length/countries)))
+        setCurrentPage(currentPage = (Math.floor(allCountries.length/countries)))
     }
 
     const prevPage = () => {
@@ -53,7 +60,7 @@ export default function Home (){
     }
     
     const nextPage = () => {
-        if (currentPage < (Math.floor(1+allCountries.length/countries))) setCurrentPage(currentPage+1) 
+        if (currentPage < (Math.floor(allCountries.length/countries))) setCurrentPage(currentPage+1) 
     }
     
     //-------------------------------------------------------
@@ -94,14 +101,14 @@ export default function Home (){
         <div className={estilos.background}>
             <div className={estilos.top}>
                 <h3>CountryWiki</h3>
-                <SearchBar/>
-                <Link to='/activity'>
+                <SearchBar setCurrentPage={setCurrentPage}/>
+                <Link to='/activity' className={estilos.link}>
                     <button className={estilos.volver}>Crear actividad</button>
                 </Link> 
                 <button className={estilos.cargar} onClick={e => handleClick(e)}>
                     Cargar todos los países
                 </button>
-                <Link to='/'>
+                <Link to='/' className={estilos.link}>
                     <button className={estilos.volver}>Volver</button>
                 </Link>
             </div>
@@ -155,7 +162,7 @@ export default function Home (){
                     prevPage={prevPage} 
                     nextPage={nextPage}
                 />
-                <p>Página: {currentPage}</p>
+                <p className={estilos.currentPage}><strong>Estás en la página: "{currentPage}"</strong></p>
                 {
                     currentCountries?.map( c => {
                         return(
@@ -166,7 +173,15 @@ export default function Home (){
                         )
                     })
                 }
-                
+                <Paginado 
+                    countries={countries} 
+                    allCountries={allCountries.length}
+                    paginado={paginado} 
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                    prevPage={prevPage} 
+                    nextPage={nextPage}
+                />
             
         </div>
     )

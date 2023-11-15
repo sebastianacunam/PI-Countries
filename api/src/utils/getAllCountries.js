@@ -8,7 +8,6 @@ const getAllCountries = async (req, res) => {
     if (!allCountries.length){
         const result = await CountriesDB();
         res.json(result)
-        
     } else {
         if (name) {           
             let countryName = await allCountries.filter( c => c.name.toLowerCase().includes(name.toLowerCase()))
@@ -16,7 +15,6 @@ const getAllCountries = async (req, res) => {
             console.log("toy aka")
         }
         else res.json(allCountries);
-        
     }   
     }
     catch(err){

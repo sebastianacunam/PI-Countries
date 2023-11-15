@@ -19,7 +19,7 @@ export default function Detail(props) {
 
     <div className={estilos.background}>
       <section className={estilos.top}>
-        <Link to="/home">
+        <Link to="/home" className={estilos.link}>
           <button className={estilos.volver}> Volver </button>
         </Link>
       </section>
@@ -77,9 +77,9 @@ export default function Detail(props) {
       </section>
 
       <section className={estilos.infoCompleta}> 
+      <h1 className={estilos.actividades}>Actividades</h1>
           {theCountry.name && (
             <div className={estilos.country}>
-              <h1>Actividades</h1>
               <section className={estilos.infopais}>
                   <div className={estilos.contenedor}>
                     {theCountry.activities &&
