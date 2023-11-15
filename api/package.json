@@ -10,8 +10,8 @@
   "author": "Henry",
   "license": "ISC",
   "engines": {
-    "node": "^21.1.0",
-    "npm": ">=6.14.6"
+    "npm":"8.1.2",
+    "node":"v16.13.2"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -23,7 +23,7 @@
     "ioredis": "^4.19.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "node": "^21.1.0",
+    "node": "18.x",
     "nodemon": "^2.0.6",
     "pg": "^8.11.3",
     "sequelize": "^6.35.0"
