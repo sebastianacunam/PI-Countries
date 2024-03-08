@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, NODE_ENV
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, PORT, NODE_ENV
 } = process.env;
 
 let sequelize =
@@ -12,7 +12,7 @@ let sequelize =
       database: DB_NAME,
       dialect: "postgres",
       host: DB_HOST,
-      port: 5432,
+      port: PORT || 5432,
       username: DB_USER,
       password: DB_PASSWORD,
       logging: false, // Desactiva el logging de consultas SQL
