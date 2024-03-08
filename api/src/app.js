@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 // const bodyParser = require('body-parser');  // No se usa más, está deprecado, por eso lo comento.
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
-import { sql } from "@vercel/postgres";
+const sql = require("@vercel/postgres") ;
 
 require('./db.js');
 

@@ -3,18 +3,18 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, NODE_ENV
+  POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_HOST, POSTGRES_DATABASE, POSTGRES_PORT, NODE_ENV
 } = process.env;
 
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-      database: DB_NAME,
+      database: POSTGRES_DATABASE,
       dialect: "postgres",
-      host: DB_HOST,
-      port: 5432,
-      username: DB_USER,
-      password: DB_PASSWORD,
+      host: POSTGRES_HOST,
+      port: POSTGRES_PORT,
+      username: POSTGRES_USER,
+      password: POSTGRES_PASSWORD,
       logging: false, // Desactiva el logging de consultas SQL
       define: {
         timestamps: false, // Desactiva la generación automática de timestamps en los modelos
@@ -29,7 +29,7 @@ let sequelize =
       }
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
+        `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/countries`,
         { logging: false, native: false }
       );
 
