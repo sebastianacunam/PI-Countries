@@ -3,19 +3,12 @@ const cookieParser = require('cookie-parser');
 // const bodyParser = require('body-parser');  // No se usa más, está deprecado, por eso lo comento.
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
-const sql = require("@vercel/postgres") ;
 
 require('./db.js');
 
 const server = express();
 
 // server.name = 'API';
-
-
-
-
-// const likes = 100;
-// const { rows } = await sql`SELECT * FROM posts WHERE likes > ${likes};`;
 
 
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
